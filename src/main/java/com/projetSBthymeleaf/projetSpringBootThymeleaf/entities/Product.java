@@ -27,7 +27,6 @@ public class Product {
         this.price = price;
         this.quantityProduct = quantityProduct;
         this.category = category;
-
     }
 
     public Long getId() {
@@ -77,5 +76,4 @@ public class Product {
     public void setCategory(Category category) {
         this.category = category;
     }
-
 }
