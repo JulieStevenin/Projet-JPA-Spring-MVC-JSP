@@ -30,13 +30,13 @@ public class ProductController {
     }
 
      // Je souhaite afficher le produit selon son id :
-     @GetMapping("/listid/{id}")
+     @GetMapping("/listidP/{id}")
      public String displayProduct(@PathVariable Long id, Model model) {
          try {
              Optional<Product> product = productService.findProductById(id);
              if (product.isPresent()) {
                  model.addAttribute("product", product.get());
-                 return "listid";
+                 return "listidP";
              } else {
                  return "Le produit que vous cherchez n'a pas été trouvé";
              }

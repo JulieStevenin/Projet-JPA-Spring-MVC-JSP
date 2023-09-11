@@ -27,6 +27,9 @@ public class ProjetSpringBootThymeleafApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
+
+		categoryRepository.deleteAll();
+
 		Category category1 = new Category();
 		category1.setNameCategory("T-shirt");
 		categoryRepository.save(category1);
@@ -35,8 +38,17 @@ public class ProjetSpringBootThymeleafApplication implements CommandLineRunner {
 		product1.setNameProduct("T-shirt col V noir");
 		product1.setQuantityProduct(50);
 		product1.setPrice(19.99f);
+		product1.setSizeProduct("L");
 		product1.setCategory(category1);
 		productRepository.save(product1);
+
+		Product product2 = new Product();
+		product2.setNameProduct("Débardeur rouge");
+		product2.setQuantityProduct(10);
+		product2.setPrice(15.99f);
+		product2.setSizeProduct("M");
+		product2.setCategory(category1);
+		productRepository.save(product2);
 	}
 }
 

@@ -11,6 +11,9 @@
     <tr>
         <th>Nom du Produit</th>
         <th>Prix</th>
+        <th>Taille</th>
+        <th>Stock</th>
+        <th>Catégorie</th>
     </tr>
     </thead>
     <tbody>
@@ -20,6 +23,12 @@
         <td th:text="${product.nameProduct}">Nom du Produit</td>
         <!-- Afficher le prix du produit -->
         <td th:text="${product.price}">Prix</td>
+        <!-- Afficher la taille  produit -->
+        <td th:text="${product.sizeProduct}">Taille</td>
+        <!-- Afficher la quantité disponible -->
+        <td th:text="${product.quantityProduct}">Stock</td>
+        <!-- Afficher le nom de sa catégorie-->
+        <td th:text="${product.category.nameCategory}">Catégorie</td>
     </tr>
     </tbody>
 </table>

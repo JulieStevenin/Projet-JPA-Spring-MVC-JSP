@@ -11,6 +11,7 @@ public class Product {
 
     private Float price;
     private Integer quantityProduct;
+    private String sizeProduct;
 
     @ManyToOne
     @JoinColumn(name = "category_id")
@@ -21,11 +22,12 @@ public class Product {
     public Product() {
     }
 
-    public Product(String nameProduct, Float price, Integer quantityProduct, Category category) {
-        this.nameProduct = nameProduct;
+    public Product(Float price, Integer quantityProduct, String sizeProduct, Category category, String nameProduct) {
         this.price = price;
         this.quantityProduct = quantityProduct;
+        this.sizeProduct = sizeProduct;
         this.category = category;
+        this.nameProduct = nameProduct;
     }
 
     public Long getId() {
@@ -34,14 +36,6 @@ public class Product {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getNameProduct() {
-        return nameProduct;
-    }
-
-    public void setNameProduct(String nameProduct) {
-        this.nameProduct = nameProduct;
     }
 
     public Float getPrice() {
@@ -60,11 +54,27 @@ public class Product {
         this.quantityProduct = quantityProduct;
     }
 
+    public String getSizeProduct() {
+        return sizeProduct;
+    }
+
+    public void setSizeProduct(String sizeProduct) {
+        this.sizeProduct = sizeProduct;
+    }
+
     public Category getCategory() {
         return category;
     }
 
     public void setCategory(Category category) {
         this.category = category;
+    }
+
+    public String getNameProduct() {
+        return nameProduct;
+    }
+
+    public void setNameProduct(String nameProduct) {
+        this.nameProduct = nameProduct;
     }
 }

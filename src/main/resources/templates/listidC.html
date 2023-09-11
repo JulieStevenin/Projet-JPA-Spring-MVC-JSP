@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Détails de la catégorie</title>
+</head>
+<body>
+<h1>Détails de la catégorie</h1>
+<div th:if="${category}">
+    <p>ID de la catégorie : <span th:text="${category.id}"></span></p>
+    <p>Nom de la catégorie : <span th:text="${category.nameCategory}"></span></p>
+
+    <!-- Liste des produits dans la catégorie -->
+    <ul>
+        <li th:each="product : ${category.products}">
+            <p>Nom du produit : <span th:text="${product.nameProduct}"></span></p>
+            <p>Prix : <span th:text="${product.price}"></span></p>
+            <p>Quantité en Stock : <span th:text="${product.quantityProduct}"></span></p>
+            <p>Taille : <span th:text="${product.sizeProduct}"></span></p>
+        </li>
+    </ul>
+</div>
+<div th:unless="${category}">
+    <p>La catégorie que vous cherchez n'a pas été trouvée.</p>
+</div>
+</body>
+</html>
