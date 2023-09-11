@@ -8,8 +8,7 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String nameProduct;
-    private String nameCategory;
+
     private Float price;
     private Integer quantityProduct;
 
@@ -17,13 +16,13 @@ public class Product {
     @JoinColumn(name = "category_id")
     private Category category;
 
+    private String nameProduct;
 
     public Product() {
     }
 
-    public Product(String nameProduct, String nameCategory, Float price, Integer quantityProduct, Category category) {
+    public Product(String nameProduct, Float price, Integer quantityProduct, Category category) {
         this.nameProduct = nameProduct;
-        this.nameCategory = nameCategory;
         this.price = price;
         this.quantityProduct = quantityProduct;
         this.category = category;
@@ -43,14 +42,6 @@ public class Product {
 
     public void setNameProduct(String nameProduct) {
         this.nameProduct = nameProduct;
-    }
-
-    public String getNameCategory() {
-        return nameCategory;
-    }
-
-    public void setNameCategory(String nameCategory) {
-        this.nameCategory = nameCategory;
     }
 
     public Float getPrice() {

@@ -1,5 +1,6 @@
 package com.projetSBthymeleaf.projetSpringBootThymeleaf.services;
 
+import com.projetSBthymeleaf.projetSpringBootThymeleaf.entities.Category;
 import com.projetSBthymeleaf.projetSpringBootThymeleaf.entities.Product;
 import com.projetSBthymeleaf.projetSpringBootThymeleaf.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,12 @@ public class ProductService {
     }
 
     public Product createProduct(Product product) {
-        return productRepository.save(product);
+        Product existingProduct = productRepository.findByNameProduct(product.getNameProduct());
+        if (existingProduct != null) {
+            return existingProduct;
+        } else {
+            return productRepository.save(product);
+        }
     }
 
     public Product updateProduct(Product product) {

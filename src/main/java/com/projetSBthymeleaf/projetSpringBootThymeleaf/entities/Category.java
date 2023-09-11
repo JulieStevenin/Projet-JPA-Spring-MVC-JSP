@@ -2,6 +2,7 @@ package com.projetSBthymeleaf.projetSpringBootThymeleaf.entities;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -11,8 +12,8 @@ public class Category {
     private Long id;
     private String nameCategory;
 
-    @OneToMany(mappedBy = "category")
-    private List<Product> products;
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
+    private List<Product> products=new ArrayList<>();
 
     public Category() {
     }

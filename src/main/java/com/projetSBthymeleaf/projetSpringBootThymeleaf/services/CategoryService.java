@@ -23,8 +23,14 @@ public class CategoryService {
     }
 
     public Category createCategory(Category category) {
-        return categoryRepository.save(category);
+        Category existingCategory = categoryRepository.findByNameCategory(category.getNameCategory());
+        if (existingCategory != null) {
+            return existingCategory;
+        } else {
+            return categoryRepository.save(category);
+        }
     }
+
 
     public Category updateCategory(Category category) {
         try {
