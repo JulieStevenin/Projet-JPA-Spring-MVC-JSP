@@ -17,20 +17,17 @@ public class Product {
     @JoinColumn(name = "category_id")
     private Category category;
 
-    @ManyToMany(mappedBy = "productsOrdered")
-    private List<User> users;
-
 
     public Product() {
     }
 
-    public Product(String nameProduct, String nameCategory, Float price, Integer quantityProduct, Category category, List<User> users) {
+    public Product(String nameProduct, String nameCategory, Float price, Integer quantityProduct, Category category) {
         this.nameProduct = nameProduct;
         this.nameCategory = nameCategory;
         this.price = price;
         this.quantityProduct = quantityProduct;
         this.category = category;
-        this.users = users;
+
     }
 
     public Long getId() {
@@ -81,11 +78,4 @@ public class Product {
         this.category = category;
     }
 
-    public List<User> getUsers() {
-        return users;
-    }
-
-    public void setUsers(List<User> users) {
-        this.users = users;
-    }
 }
