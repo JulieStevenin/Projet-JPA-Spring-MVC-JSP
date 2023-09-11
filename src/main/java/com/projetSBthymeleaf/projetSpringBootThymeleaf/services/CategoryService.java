@@ -1,6 +1,7 @@
 package com.projetSBthymeleaf.projetSpringBootThymeleaf.services;
 
 import com.projetSBthymeleaf.projetSpringBootThymeleaf.entities.Category;
+import com.projetSBthymeleaf.projetSpringBootThymeleaf.entities.Product;
 import com.projetSBthymeleaf.projetSpringBootThymeleaf.repositories.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,7 +32,6 @@ public class CategoryService {
         }
     }
 
-
     public Category updateCategory(Category category) {
         try {
             if (categoryRepository.existsById(category.getId())) {
@@ -45,10 +45,11 @@ public class CategoryService {
         return null;
     }
 
-    public void removeById(Long id) {
-        if (categoryRepository.existsById(id)) {
-            categoryRepository.deleteById(id);
-            System.out.println("La catégorie a été supprimée avec succès.");
+    public void removeCategoryAndProducts(Long id) {
+        Optional<Category> category = categoryRepository.findById(id);
+        if (category.isPresent()) {
+            categoryRepository.delete(category.get());
+            System.out.println("La catégorie et les produits ont été supprimés avec succès.");
         } else {
             System.out.println("La catégorie avec l'id " + id + " n'a pas été trouvée.");
         }

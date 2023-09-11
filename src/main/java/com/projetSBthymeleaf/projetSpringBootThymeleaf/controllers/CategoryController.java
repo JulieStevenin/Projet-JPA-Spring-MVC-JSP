@@ -6,11 +6,12 @@ import com.projetSBthymeleaf.projetSpringBootThymeleaf.services.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
-
+@CrossOrigin(origins="*")
 @Controller
 @RequestMapping
 public class CategoryController {
@@ -23,7 +24,7 @@ public class CategoryController {
     }
 
     // Je souhaite afficher la liste de toutes mes catégories:
-    @GetMapping("/list")
+    @GetMapping("/listCategories")
     public List findAllCategories(Model model) {
         List<Category> categories = categoryService.findAllCategories();
         return categories;

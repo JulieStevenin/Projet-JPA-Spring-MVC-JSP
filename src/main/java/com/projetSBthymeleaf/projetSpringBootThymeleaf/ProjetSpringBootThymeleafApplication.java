@@ -24,20 +24,20 @@ public class ProjetSpringBootThymeleafApplication implements CommandLineRunner {
 		SpringApplication.run(ProjetSpringBootThymeleafApplication.class, args);
 	}
 
+
 	@Override
 	public void run(String... args) throws Exception {
-
 		Category category1 = new Category();
 		category1.setNameCategory("T-shirt");
 		categoryRepository.save(category1);
 
-
 		Product product1 = new Product();
-		product1.setNameProduct("t-shirt col-V noir");
-		product1.setPrice(Float.valueOf("19.99"));
-		product1.setQuantityProduct(Integer.valueOf("50"));
+		product1.setNameProduct("T-shirt col V noir");
+		product1.setQuantityProduct(50);
+		product1.setPrice(19.99f);
 		product1.setCategory(category1);
 		productRepository.save(product1);
 	}
-
 }
+
+
