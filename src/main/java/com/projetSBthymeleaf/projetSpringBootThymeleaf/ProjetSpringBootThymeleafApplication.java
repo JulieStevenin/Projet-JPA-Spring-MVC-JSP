@@ -8,11 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
+
 
 
 @SpringBootApplication
-@EntityScan(basePackages = "com.projetSBthymeleaf.projetSpringBootThymeleaf.entities")
 public class ProjetSpringBootThymeleafApplication implements CommandLineRunner {
 
 	@Autowired
@@ -34,6 +33,10 @@ public class ProjetSpringBootThymeleafApplication implements CommandLineRunner {
 		category1.setNameCategory("T-shirt");
 		categoryRepository.save(category1);
 
+		Category category2 = new Category();
+		category2.setNameCategory("Robe");
+		categoryRepository.save(category2);
+
 		Product product1 = new Product();
 		product1.setNameProduct("T-shirt col V noir");
 		product1.setQuantityProduct(50);
@@ -49,6 +52,14 @@ public class ProjetSpringBootThymeleafApplication implements CommandLineRunner {
 		product2.setSizeProduct("M");
 		product2.setCategory(category1);
 		productRepository.save(product2);
+
+		Product product3 = new Product();
+		product3.setNameProduct("Robe cocktail verte");
+		product3.setQuantityProduct(5);
+		product3.setPrice(59.99f);
+		product3.setSizeProduct("M");
+		product3.setCategory(category2);
+		productRepository.save(product3);
 	}
 }
 

@@ -1,7 +1,7 @@
 package com.projetSBthymeleaf.projetSpringBootThymeleaf.services;
 
 import com.projetSBthymeleaf.projetSpringBootThymeleaf.entities.Category;
-import com.projetSBthymeleaf.projetSpringBootThymeleaf.entities.Product;
+
 import com.projetSBthymeleaf.projetSpringBootThymeleaf.repositories.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,12 +24,11 @@ public class CategoryService {
     }
 
     public Category createCategory(Category category) {
-        Category existingCategory = categoryRepository.findByNameCategory(category.getNameCategory());
-        if (existingCategory != null) {
-            return existingCategory;
-        } else {
-            return categoryRepository.save(category);
-        }
+        return categoryRepository.save(category);
+    }
+
+    public Category findByNameCategory (String nameCategory) {
+        return categoryRepository.findByNameCategory(nameCategory);
     }
 
     public Category updateCategory(Category category) {

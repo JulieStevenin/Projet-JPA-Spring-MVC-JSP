@@ -1,11 +1,11 @@
 package com.projetSBthymeleaf.projetSpringBootThymeleaf.services;
 
+
 import com.projetSBthymeleaf.projetSpringBootThymeleaf.entities.Category;
 import com.projetSBthymeleaf.projetSpringBootThymeleaf.entities.Product;
 import com.projetSBthymeleaf.projetSpringBootThymeleaf.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -23,13 +23,13 @@ public class ProductService {
         return productRepository.findById(id);
     }
 
+
     public Product createProduct(Product product) {
-        Product existingProduct = productRepository.findByNameProduct(product.getNameProduct());
-        if (existingProduct != null) {
-            return existingProduct;
-        } else {
-            return productRepository.save(product);
-        }
+        return productRepository.save(product);
+    }
+
+    public Product findByNameProduct (String nameProduct) {
+        return productRepository.findByNameProduct(nameProduct);
     }
 
     public Product updateProduct(Product product) {

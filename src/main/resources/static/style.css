@@ -1,0 +1,21 @@
+.container {
+    background-color: cadetblue;
+}
+
+body {
+    background-image: url('image/fond.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+/*}
+/*h3, h4 {*/
+/*    justify-content: center;*/
+/*    justify-items: center;
+}*/
+
+
+.center-text {
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: auto;
+}
